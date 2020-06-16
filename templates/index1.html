@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <script src="{% static "js/vue.js" %}" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.js"></script>
+    <!--引入reqwest-->
+    <link rel="stylesheet" href="{% static "css/semantic.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/swiper.css" %}">
+    <script src="static/js/swiper.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body>
+    {% verbatim %}
+    <!--停止DJANGO对网页的渲染-->
+    <div id="index1">
+    <!-- 使Index1包含整个DOM-->
+    <div class="top-menu">
+        <div class="ui container">
+            <div class="ui four column grid">
+
+                    <div v-for="item in topmenu" class="column">
+                        {{ item.title }}
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 幻灯片 -->
+    <div id="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div v-for="item in banner" class="swiper-slide">
+                    <img :src="item.img" width="100%">
+                </div>
+                  
+            </div>
+            <!-- Add Pagination -->
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+    <!-- 功能导航 -->
+    <div class="nav-btns">
+        <div class="ui container">
+            <div class="ui four column grid">
+                <div class="column"><img src="static/icons/order.png" alt=""></div>
+                <div class="column"><img src="static/icons/renew.png" alt=""></div>
+                <div class="column"><img src="static/icons/search.png" alt=""></div>
+                <div class="column"><img src="static/icons/renew.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="aritcle-list">
+        <div class="ui container" id="item-list">
+            <div class="ui centered header">
+                <h2>最新更新</h2>
+            </div>
+            <div class="article-item" id="item">
+                <img src="static/image/img1.png" class="item-img" alt="">
+                <div class="title">
+                    这是文章标题
+                    <span>2020-2-14</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tabBar">
+        <div class="ui four column grid">
+            <div class="column">首页</div>
+            <div class="column">账户</div>
+            <div class="column">帮助</div>
+            <div class="column" v-on:click="showLogin">我的</div>
+        </div>
+        <div id="login" v-show="userUI">
+            <div class="input">
+                <div class="item">
+                    <input type="text"  name="" v-model="username" value="" placeholder="用户名">
+                </div>
+                <div class="item">
+                    <input type="password"  name="" v-model="password" value="" placeholder="密码">
+                </div>
+            </div>
+            <button type="button" name="button1" v-on:click="userlogin">确认</button>
+            <button type="button" name="button2">取消</button>
+        </div>
+    </div>
+    </div>
+    {% endverbatim %}
+    <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+
+        loop: true, // 循环模式选项
+        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+3       
+
+        // 如果需要前进后退按钮
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+        el: '.swiper-scrollbar',
+        },
+
+    })
+    </script>
+    <script>
+        var csrftoken = Cookies.get('csrftoken')
+    </script>
+
+    <script>
+        var so = document.getElementById("item");
+        for (var i = 1; i <= 3; i++) {
+            var newitem = so.cloneNode(true);
+            newitem.setAttribute("id", "item" + i);
+            document.getElementById("item-list").insertBefore(newitem, so);
+        }
+    </script>
+    <script src="{% static "js/index.js" %}"></script>
+</body>
+
+</html>

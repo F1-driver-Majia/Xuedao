@@ -1,0 +1,116 @@
+html {
+    font-size: 10px;
+}
+
+.top-menu {
+    position: fixed;
+    top: 0;
+    background-color: #1a1c2b38;
+    color: white;
+    padding-top: 1rem;
+    z-index: 100;
+    width: 100%;
+    height: 3rem;
+    padding-top: 1rem;
+}
+
+.top-menu .column {
+    text-align: center;
+}
+
+.nav-btns .column {
+    text-align: center;
+}
+
+.nav-btns .column img {
+    width: 6rem;
+    width: 6rem;
+}
+
+.body {
+    width: 100%;
+    height: 300%;
+}
+
+#banner {
+    margin-top: 3rem;
+}
+
+.aritcle-list {
+    margin-top: 5rem;
+}
+
+.article-item {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.article-item img {
+    width: 100%;
+    float: left;
+    border-radius: 1rem;
+}
+
+.article-item .title {
+    background-color: #bbc3ca7d;
+    margin-top: -2rem;
+    height: 2rem;
+    width: 100%;
+    float: left;
+    color: azure;
+    border-radius: 1rem;
+}
+
+.article-item span {
+    float: right;
+}
+
+.article-item .clear {
+    clear: both;
+}
+
+.tabBar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 4rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.tabBar .column {
+    text-align: center;
+    color: black;
+    height: 2rem;
+}
+
+
+
+#login {
+    position: fixed;
+    top: 20rem;
+    width: 80%;
+    height: 12rem;
+    background: white;
+    margin-left: 10%;
+    border-radius: 2rem;
+    text-align: center;
+
+}
+
+.input .item input{
+    width: 90%;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+#login button{
+    width: 25%;
+    margin-left: 1rem;
+    background: white;
+    border: white;
+}
